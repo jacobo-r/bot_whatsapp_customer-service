@@ -1,4 +1,4 @@
-# 🏥 Radiology WhatsApp Bot
+# Bot Whatsapp de Atencion al cliente de Imagenes
 
 This is a **Flask-based WhatsApp bot** designed to assist **radiologists** in recording and managing medical exam reports via **voice messages**. The bot:
 - Allows doctors to specify an **exam type** before sending reports.
