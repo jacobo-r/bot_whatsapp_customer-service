@@ -1,11 +1,5 @@
 # Bot Whatsapp de Atencion al cliente de Imagenes
 
-This is a **Flask-based WhatsApp bot** designed to assist **radiologists** in recording and managing medical exam reports via **voice messages**. The bot:
-- Allows doctors to specify an **exam type** before sending reports.
-- **Stores voice messages** received via WhatsApp API.
-- Supports **"URGENTE"** flagging to mark critical reports.
-- Allows **"BORRAR"** to delete the last recorded report.
-
 ---
 
 ## **📂 Project Structure**
@@ -13,8 +7,6 @@ This is a **Flask-based WhatsApp bot** designed to assist **radiologists** in re
 python-whatsapp-bot/
 │── .env                     # Environment variables (update with your WhatsApp API keys)
 │── run.py                    # Main Flask app runner
-│── sessions.json             # Stores active doctor sessions
-│── medical_reports.csv       # Stores recorded reports
 │── requirements.txt          # Dependencies list
 │── README.md                 # This documentation
 │
@@ -25,22 +17,12 @@ python-whatsapp-bot/
 │   │
 │   ├── services/             # Service logic for processing requests
 │   │   ├── whatsapp_utils.py  # WhatsApp API functions (message processing)
-│   │   ├── radiology_chat.py  # Handles the conversation flow for doctors
 │   │
 │   ├── utils/                # Utility functions for file and API management
 │   │   ├── file_utils.py      # Handles CSV and session file management
-│   │   ├── whatsapp_api.py    # Functions for sending WhatsApp messages
 │   │
 │   └── decorators/           # Security-related decorators
 │       ├── security.py        # Verifies webhook requests
-
-```
-## **🛠️ How It Works**
-1. **Doctors start by specifying an exam type** (e.g., *"Resonancia"*, *"Tomografía"*) in a text message.
-2. The bot **stores the session** and considers all future voice messages as that exam type.
-3. **Voice messages** are recorded and stored with the exam type in `medical_reports.csv`.
-4. Doctors can send `"BORRAR"` to delete the **last recorded report**.
-5. Doctors can send `"URGENTE"` to **mark the last recorded report as urgent**.
 
 ---
 
@@ -91,15 +73,7 @@ To receive messages from WhatsApp, you need a **public URL**. Use **Ngrok** to e
 
 ---
 
-## **📌 Features**
-✅ **Session-based conversation flow** (exam types persist).  
-✅ **Voice message recording and storage** in `medical_reports.csv`.  
-✅ **"BORRAR" deletes the last recorded report**.  
-✅ **"URGENTE" marks the last report as urgent**.  
+ks the last report as urgent**.  
 ✅ **Secure Webhook Validation** with **HMAC signature verification**.
 
 ---
-
-## **📧 Contact**
-For support, feel free to **open an issue** or reach out.
-```
